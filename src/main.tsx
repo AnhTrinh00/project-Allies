@@ -1,12 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import App from './App.tsx'
+import App from './Component/App.tsx'
 import List from './Component/List.tsx'
+import Tab from './Component/Tab.tsx'
+
+import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
-    <List />
+    <div className="container">
+      <App />
+      <List />
+      <Tab />
+    </div>
   </StrictMode>,
 )
