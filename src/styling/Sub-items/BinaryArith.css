@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+}
+
+.binaryarith {
+    display: flex;
+    flex-direction: column;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+body.light-mode .binaryarith-container {
+    flex-grow: 1;
+    background-color: rgb(189, 189, 189);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+body.dark-mode .binaryarith-container {
+    flex-grow: 1;
+    background-color: #505050;
+    border-radius: 10px;
+    padding: 10px;
+}

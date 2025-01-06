@@ -1,13 +1,17 @@
 import { useState } from "react";
 import "../styling/List.css";
 
-function List() {
+interface ListProps {
+  onSubItemClick: (itemName: string, subItemName: string) => void;
+}
+
+function List({ onSubItemClick }: ListProps) {
   const [expandItems, setExpandItems] = useState<{ [key: number]: boolean }>({});
 
   const items = [
     {
       name: "Number Systems",
-      subItems: ["Sub-item 1", "Sub-item 2"]
+      subItems: ["Number Conversion", "Binary Arithmetic"]
     },
     {
       name: "Boolean Algebra",
@@ -70,7 +74,11 @@ function List() {
               {expandItems[index] && (
                 <div className="items-expand">
                   {item.subItems.map((subItem, subIndex) => (
-                    <button key={subIndex} className="sub-item">
+                    <button 
+                      key={subIndex} 
+                      className="sub-item"
+                      onClick={() => onSubItemClick(item.name, subItem)}
+                    >
                       {subItem}
                     </button>
                   ))}

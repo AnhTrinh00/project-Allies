@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styling/Nav.css";
 
-function Nav() {
+interface NavProps {
+  onLogoClick: () => void;
+}
+
+function Nav({ onLogoClick }: NavProps) {
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark";
   });
+
+  const navigate = useNavigate();
 
   const handleModeChange = () => {
     const newMode = !darkMode;
@@ -18,10 +25,15 @@ function Nav() {
     document.body.className = darkMode ? "dark-mode" : "light-mode";
   }, [darkMode]);
 
+  const handleLogoClick = () => {
+    onLogoClick();
+    navigate("/");
+  };
+
   return (
     <div className="app">
       <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
-        <a className="logo" href="#">
+        <a className="logo" onClick={handleLogoClick}>
           <img src="Sb-logo.png" alt="logo"/>
         </a>
         <h1 className="title">Project Allies</h1>

@@ -102,7 +102,7 @@ body.dark-mode .sub-item {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 100%;
   text-align: left;
 }
