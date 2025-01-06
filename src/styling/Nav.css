@@ -114,3 +114,54 @@ body.dark-mode .logo img {
   height: 4px;
 }
 
+@media (max-width: 768px) {
+  nav h1 {
+    font-size: 2.5rem;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .label {
+    height: 50px;
+    width: 100px;
+  }
+
+  .label::before {
+    height: 35px;
+    width: 35px;
+    left: 7px;
+  }
+
+  #checkbox:checked ~ .label::before {
+    left: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .label {
+    height: 40px;
+    width: 80px;
+  }
+
+  .label::before {
+    height: 30px;
+    width: 30px;
+    left: 5px;
+  }
+
+  #checkbox:checked ~ .label::before {
+    left: 40px;
+  }
+}

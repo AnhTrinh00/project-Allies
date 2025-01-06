@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import "../styling/App.css";
+import "../styling/Nav.css";
 
-function App() {
+function Nav() {
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark";
@@ -40,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default Nav;

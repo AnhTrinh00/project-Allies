@@ -106,3 +106,45 @@ body.dark-mode .sub-item {
   width: 100%;
   text-align: left;
 }
+
+@media (max-width: 768px) {
+  .items {
+    padding: 8px;
+    word-wrap: break-word;
+  }
+
+  .item {
+    font-size: 15px;
+  }
+
+  .sub-item {
+    font-size: 16px;
+    padding: 4px;
+    margin-top: 4px;
+  }
+
+  .dropdown-content {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .items {
+    padding: 6px;
+    word-wrap: break-word;
+  }
+
+  .item {
+    font-size: 12px;
+  }
+
+  .sub-item {
+    font-size: 14px;
+    padding: 3px;
+    margin-top: 3px;
+  }
+
+  .dropdown-content {
+    padding: 6px;
+  }
+}
