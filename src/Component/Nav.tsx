@@ -27,7 +27,7 @@ function Nav({ onLogoClick }: NavProps) {
 
   const handleLogoClick = () => {
     onLogoClick();
-    navigate("/");
+    navigate("/project-Allies");
   };
 
   return (

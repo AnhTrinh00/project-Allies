@@ -1,6 +1,6 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import Nav from './Component/Nav.tsx'
 import List from './Component/List.tsx'
