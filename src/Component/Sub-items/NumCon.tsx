@@ -13,7 +13,7 @@ function NumCon() {
     const [from, setFrom] = useState("bin");
     const [to, setTo] = useState("dec");
     const [input, setInput] = useState("");
-    const [output, setOutput] = useState("N/A");
+    const [output, setOutput] = useState("");
 
     const convert = (e: React.FormEvent) => {
         e.preventDefault();
