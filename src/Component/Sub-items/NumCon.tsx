@@ -91,17 +91,14 @@ function NumCon() {
     return (
         <div className="numcon">
             <div className="numcon-container">
-                <h1>My NumCon</h1>
-                <form className="calc-form">
-                    <div className="form-control">
+                <form className="calc-form" onSubmit={convert}>
+                    <div className="form-control select-group">
                         <label htmlFor="value1">From</label>
                         <select name="value1" id="value1" value={from} onChange={(e) => setFrom(e.target.value)}>
                             {operations.map((operation, index) => (
                                 <option key={index} value={operation.value}>{operation.name}</option>
                             ))}
                         </select>
-                    </div>
-                    <div className="form-control">
                         <label htmlFor="value2">To</label>
                         <select name="value2" id="value2" value={to} onChange={(e) => setTo(e.target.value)}>
                             {operations.map((operation, index) => (
@@ -114,7 +111,7 @@ function NumCon() {
                         <input type="text" name="input" id="input" value={input} onChange={(e) => setInput(e.target.value)} />
                     </div>
                     <div className="form-control">
-                        <button type="submit" onClick={convert}>Convert</button>
+                        <button type="submit">Convert</button>
                         <button type="reset" onClick={reset}>Reset</button>
                         <button type="button" onClick={swap}>Swap</button>
                     </div>
