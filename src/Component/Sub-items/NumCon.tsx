@@ -14,22 +14,48 @@ function NumCon() {
     const [to, setTo] = useState("dec");
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
+    const [steps, setSteps] = useState("");
+
+    const generateSteps = (baseInput: string, fromBase: number | undefined, toBase: number) => {
+        let stepDetails = `(${baseInput})₍${fromBase}₎ = `;
+        const parsedValue = parseInt(baseInput, fromBase);
+        const baseMap = { 2: "₂", 10: "₁₀", 8: "₈", 16: "₁₆" };
+
+        // Binary to Decimal Example Calculation
+        if (fromBase === 2 && toBase === 10) {
+            const digits = baseInput.split("").reverse();
+            const stepBreakdown = digits
+                .map((digit, index) => `(${digit} × 2^${index})`)
+                .join(" + ");
+            stepDetails += `${stepBreakdown} = (${parsedValue})₍${toBase}₎`;
+        }
+
+        return stepDetails;
+    }
 
     const convert = (e: React.FormEvent) => {
         e.preventDefault();
-        if (isNaN(Number(input))) {
+        if (isNaN(Number(input)) && from !== "ascii") {
             setOutput("Invalid input");
+            setSteps("Invalid input. Ensure the input matches the selected format.");
             return;
         }
+
+        let conversionSteps = "";
+
         if (from === "bin") {
             if (to === "dec") {
                 setOutput(parseInt(input, 2).toString());
+                conversionSteps = generateSteps(input, 2, 10);
             } else if (to === "octal") {
                 setOutput(parseInt(input, 2).toString(8));
+                conversionSteps = 'coming soon';
             } else if (to === "hex") {
                 setOutput(parseInt(input, 2).toString(16));
+                conversionSteps = 'coming soon';
             } else if (to === "ascii") {
                 setOutput(String.fromCharCode(parseInt(input, 2)));
+
             }
         } else if (from === "dec") {
             if (to === "bin") {
@@ -72,12 +98,14 @@ function NumCon() {
                 setOutput(input.charCodeAt(0).toString(16));
             }
         }
+        setSteps(conversionSteps);
     };
 
     const reset = (e: React.MouseEvent) => {
         e.preventDefault();
         setInput("");
         setOutput("");
+        setSteps("");
     };
 
     const swap = () => {
@@ -86,6 +114,7 @@ function NumCon() {
         setTo(temp);
         setInput("");
         setOutput("");
+        setSteps("");
     };
 
     return (
@@ -118,6 +147,10 @@ function NumCon() {
                     <div className="form-control">
                         <label htmlFor="output">Output</label>
                         <textarea name="output" id="output" readOnly value={output}></textarea>
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="steps">Calculation Steps</label>
+                        <textarea name="steps" id="steps" readOnly value={steps}></textarea>
                     </div>
                 </form>
             </div>
