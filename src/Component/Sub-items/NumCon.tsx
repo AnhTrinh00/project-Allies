@@ -17,17 +17,16 @@ function NumCon() {
     const [steps, setSteps] = useState("");
 
     const generateSteps = (baseInput: string, fromBase: number | undefined, toBase: number) => {
-        let stepDetails = `(${baseInput})₍${fromBase}₎ = `;
-        const parsedValue = parseInt(baseInput, fromBase);
         const baseMap = { 2: "₂", 10: "₁₀", 8: "₈", 16: "₁₆" };
+        let stepDetails = `(${baseInput})${baseMap[fromBase as keyof typeof baseMap ?? 10]} = `;
+        const parsedValue = parseInt(baseInput, fromBase);
 
-        // Binary to Decimal Example Calculation
         if (fromBase === 2 && toBase === 10) {
             const digits = baseInput.split("").reverse();
             const stepBreakdown = digits
                 .map((digit, index) => `(${digit} × 2^${index})`)
                 .join(" + ");
-            stepDetails += `${stepBreakdown} = (${parsedValue})₍${toBase}₎`;
+            stepDetails += `${stepBreakdown} = (${parsedValue})${baseMap[toBase]}`;
         }
 
         return stepDetails;
