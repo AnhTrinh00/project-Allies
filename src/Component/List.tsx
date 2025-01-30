@@ -15,7 +15,7 @@ function List({ onSubItemClick }: ListProps) {
     },
     {
       name: "Boolean Algebra",
-      subItems: ["Sub-item 1", "Sub-item 2"]
+      subItems: ["Simplify Expression", "Truth Table", "Karnaugh Map"]
     },
     {
       name: "Data Representation",
