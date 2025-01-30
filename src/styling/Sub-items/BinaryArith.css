@@ -71,7 +71,7 @@ body.dark-mode .binaryarith-container {
 }
 
 .form-control textarea {
-    height: 100px;
+    height: 60px;
     resize: none;
     width: 100%;
     box-sizing: border-box;
